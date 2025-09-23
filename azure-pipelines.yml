@@ -101,7 +101,7 @@ stages:
         - task: PowerShell@2
           inputs:
             filePath: 'src/shellscriptforupdatek8s.sh'
-            arguments: 'srikanth1805/demoimage $(Build.BuildId)'
+            arguments: 'demoimage $(Build.BuildId)'
           
           
 
