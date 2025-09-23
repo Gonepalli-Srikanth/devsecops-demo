@@ -6,12 +6,14 @@
 trigger:
 - main
 
-pool:
-  vmImage: ubuntu-latest
+# pool:
+#   vmImage: ubuntu-latest
 
 stages:
   - stage: testing
     displayName: Testing
+    pool:
+      vmImage: ubuntu-latest
     jobs:
       - job: 
         steps:
@@ -33,6 +35,8 @@ stages:
 
   - stage: lint
     displayName: lint
+    pool:
+      vmImage: ubuntu-latest
     jobs:
       - job: 
         steps:
@@ -50,6 +54,6 @@ stages:
           inputs:
             command: custom
             workingDir: src
-            customCommand: npm run lint
+            customCommand: run lint
 
 
