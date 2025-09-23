@@ -76,7 +76,7 @@ stages:
             inputs:
               version: 'latest'
               type: 'image'
-              target: 'demoimage'
+              target: 'srikanth1805/demoimage'
               scanners: 'license, misconfig, secret, vuln'
               severities: 'HIGH, CRITICAL'
               failOnSeverityThreshold: 'CRITICAL'
