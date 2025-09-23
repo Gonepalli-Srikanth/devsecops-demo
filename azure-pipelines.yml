@@ -78,7 +78,10 @@ stages:
               type: 'image'
               target: 'demoimage'
               scanners: 'license, misconfig, secret, vuln'
-              severities: 'MEDIUM, HIGH, CRITICAL'
+              severities: 'HIGH, CRITICAL'
+              failOnSeverityThreshold: 'CRITICAL'
+              reports: 'github'
+              publish: true
           - task: Docker@2
             inputs:
               containerRegistry: 'dockerhub'
