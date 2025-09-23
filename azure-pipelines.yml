@@ -9,11 +9,27 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+stages:
+  - stage: testing
+    displayName: Testing
+    jobs:
+      - job: 
+        steps:
+        - task: NodeTaskRunnerInstaller@0
+          inputs:
+           nodeVersion: '16'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+        - task: Npm@1
+          displayName: 'npm ci'
+          inputs:
+            command: ci
+
+        - task: Npm@1
+          displayName: 'npm test'
+          inputs:
+            command: custom
+            workingDir: src
+            customCommand: test
+
+
+
