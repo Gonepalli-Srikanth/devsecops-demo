@@ -67,18 +67,21 @@ stages:
             inputs:
               containerRegistry: 'dockerhub'
               repository: 'srikanth1805/demoimage'
-              command: 'buildAndPush'
+              command: 'build'
               Dockerfile: '**/Dockerfile'
               tags: 
                 $(Build.BuildId)
-          # - task: Docker@2
-          #   inputs:
-          #     containerRegistry: 'dockerhub'
-          #     repository: 'devsecops/demoimage'
-          #     command: 'push'
-          #     Dockerfile: '**/Dockerfile'
-          #     tags: 
-          #       $(Build.BuildId)
+
+          
+          - task: Docker@2
+            inputs:
+              containerRegistry: 'dockerhub'
+              repository: 'srikanth1805/demoimage'
+              command: 'push'
+              Dockerfile: '**/Dockerfile'
+              tags: 
+                $(Build.BuildId)
+
 
                 
 
