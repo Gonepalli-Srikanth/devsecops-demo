@@ -76,7 +76,7 @@ stages:
             inputs:
               version: 'latest'
               type: 'image'
-              target: 'srikanth1805/demoimage'
+              target: 'srikanth1805/demoimage:$(Build.BuildId)'
               scanners: 'license, misconfig, secret, vuln'
               severities: 'HIGH, CRITICAL'
               failOnSeverityThreshold: 'CRITICAL'
@@ -90,6 +90,7 @@ stages:
               Dockerfile: '**/Dockerfile'
               tags: 
                 $(Build.BuildId)
+          
 
 
                 
