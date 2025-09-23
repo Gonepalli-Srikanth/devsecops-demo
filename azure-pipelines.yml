@@ -72,7 +72,13 @@ stages:
               tags: 
                 $(Build.BuildId)
 
-          
+          - task: trivy@2
+            inputs:
+              version: 'latest'
+              type: 'image'
+              target: 'demoimage'
+              scanners: 'license, misconfig, secret, vuln'
+              severities: 'MEDIUM, HIGH, CRITICAL'
           - task: Docker@2
             inputs:
               containerRegistry: 'dockerhub'
