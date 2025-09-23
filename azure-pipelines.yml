@@ -91,7 +91,7 @@ stages:
               tags: 
                 $(Build.BuildId)
 
-  - stage: update kuberneties deployment
+  - stage: update_k8s_deployment
     displayName: update k8s deployment
     pool:
       vmImage: ubuntu-latest
