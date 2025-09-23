@@ -66,7 +66,7 @@ stages:
           - task: Docker@2
             inputs:
               containerRegistry: 'dockerhub'
-              repository: 'devsecops'
+              repository: 'devsecops/demoimage'
               command: 'build'
               Dockerfile: '**/Dockerfile'
               tags: 
@@ -79,4 +79,6 @@ stages:
               Dockerfile: '**/Dockerfile'
               tags: 
                 $(Build.BuildId)
+
+                
 
