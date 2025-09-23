@@ -31,5 +31,25 @@ stages:
             workingDir: src
             customCommand: test
 
+  - stage: lint
+    displayName: lint
+    jobs:
+      - job: 
+        steps:
+        - task: NodeTaskRunnerInstaller@0
+          inputs:
+           nodeVersion: '16'
+
+        - task: Npm@1
+          displayName: 'npm ci'
+          inputs:
+            command: ci
+
+        - task: Npm@1
+          displayName: 'npm lint'
+          inputs:
+            command: custom
+            workingDir: src
+            customCommand: npm run lint
 
 
