@@ -66,7 +66,7 @@ stages:
           - task: Docker@2
             inputs:
               containerRegistry: 'dockerhub'
-              repository: 'devsecops/demoimage'
+              repository: 'srikanth1805/demoimage'
               command: 'buildAndPush'
               Dockerfile: '**/Dockerfile'
               tags: 
