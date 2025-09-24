@@ -13,8 +13,8 @@ trigger:
 
 variables:
   IMAGE_REGISTRY: 'docker.io'
-  imageRepository: 'srikanth1805/demoimage'
-  tag: '$(Build.BuildId)'
+  IMAGE_NAME: 'srikanth1805/demoimage'
+  BUILD_TAG: '$(Build.BuildId)'
   DEPLOYMENT_FILE: 'kubernetes/deployment.yaml'
   GITHUB_REPO: 'https://github.com/Gonepalli-Srikanth/devsecops-demo.git'
   GITHUB_BRANCH: 'main'
