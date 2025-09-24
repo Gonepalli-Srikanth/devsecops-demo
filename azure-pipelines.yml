@@ -144,7 +144,7 @@ stages:
                 git commit -m "Update image tag to $(BUILD_TAG)"
                 git push origin $(GITHUB_BRANCH)
             env:
-              SYSTEM_ACCESSTOKEN: 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
+              SYSTEM_ACCESSTOKEN: FTfneeyfdJtBUOkiovrV8kej4Ix3tgIz2nT7VVQbhgDJlLSnLyi5JQQJ99BIACAAAAAAAAAAAAASAZDO3Nr2
 
           
 
