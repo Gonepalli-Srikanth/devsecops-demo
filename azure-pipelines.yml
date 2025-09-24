@@ -138,7 +138,7 @@ stages:
               script: |
                 git config user.email "$(GITHUB_EMAIL)"
                 git config user.name "$(GITHUB_USER)"
-                git remote set-url origin https://$(System.AccessToken)@github.com/$(GITHUB_REPO)
+                git remote set-url origin https://$(System.AccessToken)@github.com/Gonepalli-Srikanth/devsecops-demo.git
                 git checkout $(GITHUB_BRANCH)
                 git add $(DEPLOYMENT_FILE)
                 git commit -m "Update image tag to $(BUILD_TAG)"
