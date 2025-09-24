@@ -4,7 +4,12 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
+  paths:
+    exclude:
+      - kubernetes/deployment.yaml
+  branches:
+    include:
+      - main
 
 variables:
   imageRepository: 'srikanth1805/demoimage'
