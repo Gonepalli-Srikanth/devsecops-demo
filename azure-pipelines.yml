@@ -12,8 +12,14 @@ trigger:
       - main
 
 variables:
+  IMAGE_REGISTRY: 'docker.io'
   imageRepository: 'srikanth1805/demoimage'
   tag: '$(Build.BuildId)'
+  DEPLOYMENT_FILE: 'kubernetes/deployment.yaml'
+  GITHUB_REPO: 'https://github.com/Gonepalli-Srikanth/devsecops-demo.git'
+  GITHUB_BRANCH: 'main'
+  GITHUB_USER: 'azure-pipeline'
+  GITHUB_EMAIL: 'g.sri843@gmail.com'
 
 # pool:
 #   vmImage: ubuntu-latest
@@ -107,17 +113,39 @@ stages:
     jobs:
       - job: 
         steps:
-         - task: ShellScript@2
-           inputs:
-             scriptPath: 'src/shellscriptforupdatek8s.sh'
-             args: '$(imageRepository) $(tag)'
+        #  - task: ShellScript@2
+        #    inputs:
+        #      scriptPath: 'src/shellscriptforupdatek8s.sh'
+        #      args: '$(imageRepository) $(tag)'
 
         # - task: PowerShell@2
         #   inputs:
         #     filePath: 'shellscriptforupdatek8s.ps1'
         #     arguments: '$(imageRepository) $(tag)'
+          - task: Bash@3
+            displayName: 'Update Image Tag in deployment.yml'
+            inputs:
+              targetType: 'inline'
+              script: |
+                echo "Updating image tag in deployment.yml to $(BUILD_TAG)"
+                sed -i 's|image: $(IMAGE_REGISTRY)/$(IMAGE_NAME):.*|image: $(IMAGE_REGISTRY)/$(IMAGE_NAME):$(BUILD_TAG)|' $(DEPLOYMENT_FILE)
+
         
-          
+          - task: Bash@3
+            displayName: 'Commit and Push Changes to GitHub'
+            inputs:
+              targetType: 'inline'
+              script: |
+                git config user.email "$(GITHUB_EMAIL)"
+                git config user.name "$(GITHUB_USER)"
+                git remote set-url origin https://$(System.AccessToken)@github.com/$(GITHUB_REPO)
+                git checkout $(GITHUB_BRANCH)
+                git add $(DEPLOYMENT_FILE)
+                git commit -m "Update image tag to $(BUILD_TAG)"
+                git push origin $(GITHUB_BRANCH)
+            env:
+              SYSTEM_ACCESSTOKEN: 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
+
           
 
 
