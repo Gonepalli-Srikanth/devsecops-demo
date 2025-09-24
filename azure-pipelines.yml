@@ -18,7 +18,7 @@ variables:
   DEPLOYMENT_FILE: 'kubernetes/deployment.yaml'
   GITHUB_REPO: 'https://github.com/Gonepalli-Srikanth/devsecops-demo.git'
   GITHUB_BRANCH: 'main'
-  GITHUB_USER: 'azure-pipeline'
+  GITHUB_USER: 'Gonepalli-Srikanth'
   GITHUB_EMAIL: 'g.sri843@gmail.com'
 
 # pool:
