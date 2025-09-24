@@ -127,7 +127,7 @@ stages:
             inputs:
               targetType: 'inline'
               script: |
-                echo "Updating image tag in deployment.yml to $(BUILD_TAG)"
+                echo "Updating $(IMAGE_REGISTRY)/$(IMAGE_NAME) tag in $(DEPLOYMENT_FILE) to $(BUILD_TAG)"
                 sed -i 's|image: $(IMAGE_REGISTRY)/$(IMAGE_NAME):.*|image: $(IMAGE_REGISTRY)/$(IMAGE_NAME):$(BUILD_TAG)|' $(DEPLOYMENT_FILE)
 
         
