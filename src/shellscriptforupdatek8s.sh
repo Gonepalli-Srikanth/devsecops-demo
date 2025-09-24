@@ -15,6 +15,8 @@ cd /tmp/temp_repo
 # For example, let's say you want to change the image tag in a deployment.yaml file
 sed -i "s|image:.*|image: <REGISTRY-NAME>/$1:$2|g" kubernetes/deployment.yaml
 
+git config --global user.name "Gonepalli Srikanth"
+
 # Add the modified files
 git add .
 
