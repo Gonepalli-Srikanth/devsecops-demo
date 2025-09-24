@@ -102,10 +102,16 @@ stages:
     jobs:
       - job: 
         steps:
-        - task: ShellScript@2
+        # - task: ShellScript@2
+        #   inputs:
+        #     scriptPath: 'src/shellscriptforupdatek8s.sh'
+        #     args: '$(imageRepository) $(tag)'
+
+        - task: PowerShell@2
           inputs:
-            scriptPath: 'src/shellscriptforupdatek8s.sh'
-            args: '$(imageRepository) $(tag)'
+            filePath: 'shellscriptforupdatek8s.ps1'
+            arguments: '$(imageRepository) $(tag)'
+        
           
           
 
