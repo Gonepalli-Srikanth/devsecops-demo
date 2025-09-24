@@ -16,6 +16,8 @@ cd /tmp/temp_repo
 sed -i "s|image:.*|image: <REGISTRY-NAME>/$1:$2|g" kubernetes/deployment.yaml
 
 git config --global user.name "Gonepalli Srikanth"
+git config --global user.email g.sri843@gmail.com
+
 
 # Add the modified files
 git add .
