@@ -4,7 +4,7 @@ set -x
 
 # Set the repository URL
 # REPO_URL="https://https://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@github.com/Gonepalli-Srikanth/devsecops-demo"
-REPO_URL = "https://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@github.com/Gonepalli-Srikanth/devsecops-demo.git"
+REPO_URL = "https://github.com/Gonepalli-Srikanth/devsecops-demo.git"
 
 #     git config user.email "ci-bot@example.com"
 #     git config user.name "Azure DevOps CI"
