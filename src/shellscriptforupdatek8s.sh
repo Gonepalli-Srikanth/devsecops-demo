@@ -4,7 +4,7 @@ set -x
 
 # Set the repository URL
 # REPO_URL="https://https://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@github.com/Gonepalli-Srikanth/devsecops-demo"
-REPO_URL = "https://github.com/Gonepalli-Srikanth/devsecops-demo.git"
+git clone https://github.com/Gonepalli-Srikanth/devsecops-demo.git /temp/temp_repo
 
 #     git config user.email "ci-bot@example.com"
 #     git config user.name "Azure DevOps CI"
@@ -16,7 +16,7 @@ REPO_URL = "https://github.com/Gonepalli-Srikanth/devsecops-demo.git"
 
 
 # Clone the git repository into the /tmp directory
-git clone "$REPO_URL" /tmp/temp_repo
+# git clone "$REPO_URL" /tmp/temp_repo
 
 # Navigate into the cloned repository directory
 cd /tmp/temp_repo
